@@ -7,7 +7,7 @@
 \NeedsTeXFormat{LaTeX2e}
 
 % basic documentclass and packages
-\LoadClass[12pt,a4paper,draft, landscape]{article}
+\LoadClass[8pt,a4paper,draft, landscape]{article}
 \RequirePackage{ifthen}
 %\RequirePackage{comment}
 \RequirePackage{xcolor}
@@ -77,6 +77,7 @@
 % equation box        
 \newcommand{\eqbox}[1]{ \setlength{\fboxsep}{1pt} \fcolorbox{section}{formula}{ \hspace{0.5em}$\displaystyle#1$\hspace{0.5em}} }
 
+\newcommand{\itembox}[1] { \fcolorbox{black}{white}{\begin{minipage}{ \linewidth -0.5cm } \vspace{2pt} #1 \vspace*{2pt} \end{minipage}}}
 % new environments
 \renewcommand{\section}[1]{
     \Large\bfseries
