@@ -10,26 +10,48 @@
 
 \section{Thermodynamics}
     \subsection{Ethalpy H}
-    \eqbox{H = E + PV} 
-    $ \Delta H  \stackrel{\dot{P}=0}{=}  q_p $
-    \begin{itemize}
-        \item $\Delta H > 0 \Rightarrow$ system gained heat
-        \item $\Delta H < 0 \Rightarrow$ system lost heat
-    \end{itemize}
-    Hess's Law:\eqbox{\Delta H_{rxn} = \sum_i \Delta H_i} \\
-    \eqbox{\Delta H_{rxn}^0 = \sum_{prod, j} b_j \cdot \Delta H_{f,j}^0
-    - \sum_{react,i} a_i \Delta H_{f,i}^0} \\
-    \begin{itemize}
-        \item Spontaneous p. = p. occur w/o assistance
-        \item Reversible = p. can be reversed w/no change to surroundings
-        \item Irreversible = surroundings changed when process is reversed
-    \end{itemize}
-    \itembox{\begin{itemize} 
-        \item All real p. are irreversible
-        \item All spon
-    \end{itemize}}
-        \subsubsection{h}
-       
+        \eqbox{H = E + PV} 
+        $ \Delta H  \stackrel{\dot{P}=0}{=}  q_p $
+        \begin{itemize}
+            \item $\Delta H > 0 \Rightarrow$ system gained heat
+            \item $\Delta H < 0 \Rightarrow$ system lost heat
+        \end{itemize}
+        \subsubsection{Hess's Law}
+            \eqbox{\Delta H_{rxn} = \sum_i \Delta H_i} \\
+            \eqbox{\Delta H_{rxn}^0 = \sum_{prod, j} b_j \cdot \Delta H_{f,j}^0
+            - \sum_{react,i} a_i \Delta H_{f,i}^0} \\
+        \subsubsection{Reactions}
+            \begin{itemize}
+                \item Spontaneous p. = p. occur w/o assistance
+                \item Reversible = p. can be reversed w/no change to surroundings
+                \item Irreversible = surroundings changed when process is reversed
+            \end{itemize}
+            \itembox{\begin{itemize} 
+                \item All real p. are irreversible
+                \item All spontaneous p. are real
+                \item All spontaneous p. are Irreversible
+                \item To return system to initial state $\Rightarrow$ requires work
+                \item While E is conserved during spontaneous p. E tends to spread out and 
+                become less usefull
+            \end{itemize}}
+        \subsubsection{3rd law of thermodynamics}
+            \begin{itemize}
+                \item Pure, crystalline solid substance at $T=0K$ has $S=0$
+                \item For rxn: $\Delta S_{surr} = \frac{-q_{sys}}{T} = \frac{- \Delta H_{rxn}^0}{T}$
+                \item Reversible p. : $\Delta S_{univ} =0$
+                \item Irreversible p. : $\Delta S_{univ} > 0$
+                \item Entropy of the universe increases for any spontaneous p
+            \end{itemize}
+    \subsection{Gibb's free energy}
+        \begin{itemize}
+            \item \eqbox{G := H - T S}
+            \item at const. T $ \Rightarrow \Delta G= \Delta H_{sys} - T \Delta S_{sys}$
+        \end{itemize}
+        \begin{tabular*}{\linewidth}{l l l l}
+            $\Delta H$ & $\Delta S$ & $- T \Delta S$ & $\Delta G$ \\
+            \hline
+        \end{tabular*}
+
 %\eqbox{3 \cdot 3 = 9 }
 \lipsum
 \section{helo}
