@@ -15,10 +15,12 @@
 %\RequirePackage{newcent}
 %\RequirePackage{microtype}
 \definecolor{darkgreen}{rgb}{0,0.1,0.4}
+\definecolor{title}{rgb}{0.8, 0.4, 0.2}
 \definecolor{section}{rgb}{1, 0.6, 0.4}
 \definecolor{subsection}{rgb}{1, 0.7, 0.45}
 \definecolor{subsubsection}{rgb}{1, 0.8, 0.6}
 \definecolor{titletext}{rgb}{0, 0, 0}
+\definecolor{bigtitletext}{rgb}{1, 1, 1}
 \definecolor{formula}{rgb}{0.95, 1.0, 1.0}
 
 % Declare Options
@@ -41,20 +43,25 @@
 \RequirePackage{geometry}
 \geometry{margin=0.5cm}
 \RequirePackage{parskip}
+% further layout packages and commands
+\RequirePackage{multicol}
+\usepackage{enumitem} %for space between items
 
-%is this nessary?
+
 \usepackage[compact]{titlesec}
 \titlespacing{\section}{0pt}{*0}{*0}
 \titlespacing{\subsection}{0pt}{*0}{*0}
 \titlespacing{\subsubsection}{0pt}{*0}{*0}
 
 \setlength{\parindent}{0pt}% No paragraph indent
+
 \pagestyle{empty}
 \setlength{\unitlength}{1cm}
-
+\setlength\itemsep{0cm}
 \setlength{\parskip}{0cm}
 \setlength{\parindent}{0em}
-
+\setlist[itemize]{noitemsep}
+\setlist[enumerate]{noitemsep}
 
 % math packages
 \RequirePackage{amsmath}
@@ -62,8 +69,6 @@
 %tikz 
 \RequirePackage{tikz}
 
-% further layout packages and commands
-\RequirePackage{multicol}
 
 % new variables
 \newcommand{\veranstaltung}[1]{\def\@veranstaltung{#1}}
@@ -92,14 +97,15 @@
             \vspace*{2pt}
         \end{minipage}
     }
+    \tiny
     }
 
 %subsection color box
 \renewcommand{\subsection}[1]{
-    \normalsize \bfseries
+    \tiny \bfseries
     \setlength{\fboxsep}{0cm}
     \colorbox{subsection}{
-        \begin{minipage}{\linewidth  -0.375cm }
+        \begin{minipage}{\linewidth  -0.3cm }
             \vspace*{2pt}
             \leftskip2pt 
             \rightskip\leftskip 
@@ -110,10 +116,10 @@
     
 %subsubsection color box
 \renewcommand{\subsubsection}[1]{
-    \normalsize \bfseries
+    \tiny \bfseries
     \setlength{\fboxsep}{0cm}
     \colorbox{subsubsection}{
-        \begin{minipage}{\columnwidth -0.375cm}
+        \begin{minipage}{\columnwidth -0.3cm}
             \vspace*{2pt}
             \leftskip2pt 
             \rightskip\leftskip
@@ -124,27 +130,30 @@
 
 % redefine maketitle
 \renewcommand\@maketitle{%
+   \bfseries
     \setlength{\fboxsep}{0cm}
-    \begin{minipage}{\linewidth}
-        
-        \begin{minipage}{0.7\linewidth}
-            \begin{center}~~
-                \textbf{\Large\@veranstaltung\ -- 
-                \ifthenelse{\equal{\@cheatsheet}{true}}{\ifthenelse{\equal{\@language}{german}}{Spickzettel}{Cheat sheet}}{}} 
-                %\vspace{1mm} 
-            \end{center}
+
+    \colorbox{title}{
+        \begin{minipage}{ \linewidth -0.4cm }
+            \setlength{\parindent}{1pt}
+            \setlength{\baselineskip}{0pt}
+            \vspace*{2pt}
+            \leftskip2pt 
+            \rightskip\leftskip
+            \begin{center}
+                \Large \color{bigtitletext}  \@veranstaltung 
+                \ifthenelse{\equal{\@cheatsheet}{true}}{ \-- \ifthenelse{\equal{\@language}{german}}{Spickzettel}{Cheat sheet}}{}
+                \tiny  \\
+                Oscar von Löhneysen - ofreiherr@ethz.ch \\
+                Anna-Yaroslava Bodnar - abodnar@ethz.ch\\
+                Version: \today
+            \end{center}                
+            \vspace*{2pt}
         \end{minipage}
-        \begin{minipage}{0.25\linewidth}
-            \textbf{ETH Z{\"u}rich}\hfill\\
-            \textbf{Department Maschineningenieur}\selectlanguage{ngerman}					
-        \end{minipage}
-        %\bigskip
-        
-        \hrulefill
-        %\bigskip
-    \end{minipage}
+    }
+    \tiny
 }
 
-\ifthenelse{\equal{\@notitle}{true}}{}{\AtBeginDocument{\maketitle}} 
 \AtBeginDocument{\begin{multicols*}{\@numberCols}}
+\ifthenelse{\equal{\@notitle}{true}}{}{\AtBeginDocument{\maketitle}} 
 \AtEndDocument{\end{multicols*}}
